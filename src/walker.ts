@@ -127,11 +127,6 @@ function * walkInternal(
 	options: WalkOptions,
 	currentDepth: number,
 ): IterableIterator<Dirent | WalkError> {
-	// Set the default depth to 0.
-	if (options.depth === undefined) {
-		options.depth = 0
-	}
-
 	// This can throw an error if the path is not a string nor a URL.
 	const currentPath = options.rootPath instanceof URL
 		? fileURLToPath(options.rootPath)
@@ -162,7 +157,7 @@ function * walkInternal(
 			depth: currentDepth,
 		})
 		// Recursively traverse the directory until the desired depth is reached
-		if (dirent.isDirectory() && currentDepth < options.depth) {
+		if (dirent.isDirectory() && (options.depth === undefined || currentDepth < options.depth)) {
 			// The constant `path` is now the path to the next directory
 			// Start recursion. Read the next directories and yield all following dirents
 			// No need to wrap this call in a try-catch-block, since any error that can occur would already have been yielded by the first try-catch-block
