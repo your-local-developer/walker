@@ -108,6 +108,7 @@ export type WalkOptions = {
  * Recursively traverse a directory and yield all it's dirents (files and directories) and errors.
  *
  * @param options Options for the walk function.
+ * @throws {TypeError} if `options.path` is not a string nor a URL.
  */
 export function * walk(
 	options: WalkOptions,
