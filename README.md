@@ -17,7 +17,21 @@ for (const dirent of walk({rootPath: './node_modules'})) {
         console.log(dirent.path)
     }
 }
+```
 
+Limiting the depth to only one subdirectory:
+
+```js
+import {walk, WalkError} from '@bode.fun/walker'
+
+for (const dirent of walk({rootPath: './node_modules', depth: 1})) {
+    if (dirent instanceof WalkError) {
+        console.error(dirent.path)
+    } else {
+        // This will not be as much 🥳
+        console.log(dirent.path)
+    }
+}
 ```
 
 ## 📝 License
