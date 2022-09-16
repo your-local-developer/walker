@@ -1,6 +1,6 @@
 import {readdirSync} from 'node:fs'
 import type {ObjectEncodingOptions, Dirent as NodeDirent} from 'node:fs'
-import {join, normalize} from 'node:path'
+import {join} from 'node:path'
 import {fileURLToPath} from 'node:url'
 
 /**
@@ -26,9 +26,12 @@ export type WalkErrorOptions = {
  * A WalkError contains the original error of an `unknown` type and the metadata defined in the type `DirentMetaData`.
  */
 export class WalkError extends Error implements DirentMetaData {
-	override name = 'WalkError'
-	depth: number
-	path: string
+	override get name() {
+		return 'WalkError'
+	}
+
+	readonly depth: number
+	readonly path: string
 	/** The original error */
 	error: unknown
 	constructor({depth, error, path}: WalkErrorOptions) {
@@ -51,11 +54,11 @@ export type DirentOptions = {
  * This is a small wrapper around node's `Dirent` to provide it's absolute path.
  */
 export class Dirent implements NodeDirent, DirentMetaData {
-	depth: number
-	name: string
+	readonly depth: number
+	readonly name: string
 	/** Internal dirent */
-	#dirent: NodeDirent
-	path: string
+	readonly #dirent: NodeDirent
+	readonly path: string
 
 	constructor({depth, dirent, path}: DirentOptions) {
 		this.path = path
@@ -99,21 +102,37 @@ export class Dirent implements NodeDirent, DirentMetaData {
  */
 export type WalkOptions = {
 	/** The path to the directory start traversing from. */
-	rootPath: string | URL;
+	rootPath: URL;
 	/** The maximum depth to traverse. Providing a 0 means that it will only walk the given directory. */
 	depth?: number;
+} & ObjectEncodingOptions
+
+/**
+ * These are options for the walk function.
+ */
+export type WalkInternalOptions = {
+	/** The path to the directory start traversing from. */
+	rootPath: string;
+	/** The maximum depth to traverse. Providing a 0 means that it will only walk the given directory. */
+	depth?: number;
+	/** The current depth where the function is at. It is used to stop the recursion. */
+	currentDepth: number;
 } & ObjectEncodingOptions
 
 /**
  * Recursively traverse a directory and yield all it's dirents (files and directories) and errors.
  *
  * @param options Options for the walk function.
- * @throws {TypeError} if `options.path` is not a string nor a URL.
  */
 export function * walk(
 	options: WalkOptions,
 ): IterableIterator<Dirent | WalkError> {
-	yield * walkInternal(options, 0)
+	const internalOptions: WalkInternalOptions = {
+		...options,
+		rootPath: fileURLToPath(options.rootPath), // On Windows: C:/Users/jan/Projekte to C:\Users\jan\Projekte
+		currentDepth: 0,
+	}
+	yield * walkInternal(internalOptions)
 }
 
 /**
@@ -121,17 +140,12 @@ export function * walk(
  * It is hidden to provide a good api for the user.
  *
  * @param options Options for the walk function.
- * @param currentDepth used for stopping the recursion.
- * @throws {TypeError} if `options.path` is not a string nor a URL.
  */
 function * walkInternal(
-	options: WalkOptions,
-	currentDepth: number,
+	options: WalkInternalOptions,
 ): IterableIterator<Dirent | WalkError> {
 	// This can throw an error if the path is not a string nor a URL.
-	const currentPath = options.rootPath instanceof URL
-		? fileURLToPath(options.rootPath)
-		: normalize(options.rootPath) // On Windows: C:/Users/jan/Projekte to C:\Users\jan\Projekte
+	const currentPath = options.rootPath
 
 	// Read files and directories
 	let currentDirents: NodeDirent[] = []
@@ -144,7 +158,7 @@ function * walkInternal(
 		yield new WalkError({
 			path: currentPath,
 			error,
-			depth: currentDepth,
+			depth: options.currentDepth,
 		})
 	}
 
@@ -155,17 +169,18 @@ function * walkInternal(
 		yield new Dirent({
 			path,
 			dirent,
-			depth: currentDepth,
+			depth: options.currentDepth,
 		})
 		// Recursively traverse the directory until the desired depth is reached
-		if (dirent.isDirectory() && (options.depth === undefined || currentDepth < options.depth)) {
+		if (dirent.isDirectory() && (options.depth === undefined || options.currentDepth < options.depth)) {
 			// The constant `path` is now the path to the next directory
 			// Start recursion. Read the next directories and yield all following dirents
 			// No need to wrap this call in a try-catch-block, since any error that can occur would already have been yielded by the first try-catch-block
 			yield * walkInternal({
 				...options,
 				rootPath: path,
-			}, currentDepth + 1)
+				currentDepth: options.currentDepth + 1,
+			})
 		}
 	}
 }
