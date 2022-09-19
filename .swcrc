@@ -13,6 +13,5 @@
         "loose": false,
         "externalHelpers": false
     },
-    "sourceMaps": true,
-    "minify": false
+    "minify": true
 }
