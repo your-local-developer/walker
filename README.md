@@ -24,7 +24,7 @@ Limiting the depth to only one subdirectory:
 ```js
 import {walk, WalkError} from '@bode.fun/walker'
 
-for (const dirent of walk({rootPath: new URL('./node_modules', import.meta.url), depth: 1})) {
+for (const dirent of walk({rootPath: new URL('./node_modules', import.meta.url), depthLimit: 1})) {
     if (dirent instanceof WalkError) {
         console.error(dirent.path)
     } else {
