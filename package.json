@@ -1,6 +1,6 @@
 {
   "name": "@bode.fun/walker",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A small and simple library for traversing nested directories. 🚶🌳📁",
   "packageManager": "yarn@3.2.3",
   "type": "module",
