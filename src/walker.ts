@@ -1,5 +1,5 @@
+import type {Dirent as NodeDirent, ObjectEncodingOptions} from 'node:fs'
 import {readdirSync} from 'node:fs'
-import type {ObjectEncodingOptions, Dirent as NodeDirent} from 'node:fs'
 import {join} from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -104,7 +104,7 @@ export type WalkOptions = {
 	/** The path to the directory start traversing from. */
 	rootPath: URL;
 	/** The maximum depth to traverse. Providing a 0 means that it will only walk the given directory. */
-	depth?: number;
+	depthLimit?: number;
 } & ObjectEncodingOptions
 
 /**
@@ -114,7 +114,7 @@ export type WalkInternalOptions = {
 	/** The path to the directory start traversing from. */
 	rootPath: string;
 	/** The maximum depth to traverse. Providing a 0 means that it will only walk the given directory. */
-	depth?: number;
+	depthLimit?: number;
 	/** The current depth where the function is at. It is used to stop the recursion. */
 	currentDepth: number;
 } & ObjectEncodingOptions
@@ -172,7 +172,7 @@ function * walkInternal(
 			depth: options.currentDepth,
 		})
 		// Recursively traverse the directory until the desired depth is reached
-		if (dirent.isDirectory() && (options.depth === undefined || options.currentDepth < options.depth)) {
+		if (dirent.isDirectory() && (options.depthLimit === undefined || options.currentDepth < options.depthLimit)) {
 			// The constant `path` is now the path to the next directory
 			// Start recursion. Read the next directories and yield all following dirents
 			// No need to wrap this call in a try-catch-block, since any error that can occur would already have been yielded by the first try-catch-block

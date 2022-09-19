@@ -5,7 +5,7 @@ const packagesPerLicense = new Map<string, number>()
 const nodeModulesFolder = new URL('../node_modules', import.meta.url)
 const unlicensedPackages = new Map<string, string>()
 
-for (const entry of walk({rootPath: nodeModulesFolder, depth: 2})) {
+for (const entry of walk({rootPath: nodeModulesFolder, depthLimit: 2})) {
 	if (entry instanceof WalkError) {
 		if (entry.error instanceof Error) {
 			console.error(`🥲 Error: ${entry.error.message}`)
