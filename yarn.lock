@@ -98,87 +98,87 @@
     slash "3.0.0"
     source-map "^0.7.3"
 
-"@swc/core-android-arm-eabi@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-android-arm-eabi/-/core-android-arm-eabi-1.3.2.tgz#55f11e0f01d568b832a59d0ff6156c14d5458c7a"
+"@swc/core-android-arm-eabi@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-android-arm-eabi/-/core-android-arm-eabi-1.3.4.tgz#ce1a32c0107f599aebd55923473e0f7217918686"
   dependencies:
     "@swc/wasm" "1.2.122"
 
-"@swc/core-android-arm64@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-android-arm64/-/core-android-arm64-1.3.2.tgz#f3165028ec35d73103e1f5a928847356517199ce"
+"@swc/core-android-arm64@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-android-arm64/-/core-android-arm64-1.3.4.tgz#998697ef810e10848e4cc64834f37ee60dd738c0"
   dependencies:
     "@swc/wasm" "1.2.130"
 
-"@swc/core-darwin-arm64@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-darwin-arm64/-/core-darwin-arm64-1.3.2.tgz#ddd4e6daa505d08e6177f111be6a2caa31211d8b"
+"@swc/core-darwin-arm64@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-darwin-arm64/-/core-darwin-arm64-1.3.4.tgz#99974b7657348717ce685450ef4566af5fca5f6b"
 
-"@swc/core-darwin-x64@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-darwin-x64/-/core-darwin-x64-1.3.2.tgz#057515579ccc52717a1c3938dffd0ac6e1ed2caa"
+"@swc/core-darwin-x64@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-darwin-x64/-/core-darwin-x64-1.3.4.tgz#4742a7f83de9f6ba50801e9f6500b538856853ea"
 
-"@swc/core-freebsd-x64@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-freebsd-x64/-/core-freebsd-x64-1.3.2.tgz#1b80c6adc20a4bebe2a2dfc86acd47647d37dd75"
+"@swc/core-freebsd-x64@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-freebsd-x64/-/core-freebsd-x64-1.3.4.tgz#b007e547470c709ec66c0187e01478736c7e3c4a"
   dependencies:
     "@swc/wasm" "1.2.130"
 
-"@swc/core-linux-arm-gnueabihf@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-linux-arm-gnueabihf/-/core-linux-arm-gnueabihf-1.3.2.tgz#7aa675f9daaa35319e95f22bf0d0e145340a338a"
+"@swc/core-linux-arm-gnueabihf@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-linux-arm-gnueabihf/-/core-linux-arm-gnueabihf-1.3.4.tgz#f1224392d6a67e6e16865f762af1c18d0123f2ff"
   dependencies:
     "@swc/wasm" "1.2.130"
 
-"@swc/core-linux-arm64-gnu@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-linux-arm64-gnu/-/core-linux-arm64-gnu-1.3.2.tgz#a071167f4268a479c4e75e7a4b50f8dbf7aeaaa8"
+"@swc/core-linux-arm64-gnu@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-linux-arm64-gnu/-/core-linux-arm64-gnu-1.3.4.tgz#fa4326d7c42d5e5c34461cf0ae3b6c5e97aea3c1"
 
-"@swc/core-linux-arm64-musl@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-linux-arm64-musl/-/core-linux-arm64-musl-1.3.2.tgz#3b93f6ada83e09aaec3ca49fa08e13cabbc4a0a8"
+"@swc/core-linux-arm64-musl@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-linux-arm64-musl/-/core-linux-arm64-musl-1.3.4.tgz#0b03ddf3d2e562dfea6faa6917cd87496a910925"
 
-"@swc/core-linux-x64-gnu@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-linux-x64-gnu/-/core-linux-x64-gnu-1.3.2.tgz#704f2e8a15f571dbe765269d7ffb656612eca1b2"
+"@swc/core-linux-x64-gnu@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-linux-x64-gnu/-/core-linux-x64-gnu-1.3.4.tgz#1cc63f9a86074cac7454796ccbe3836ac7f6451b"
 
-"@swc/core-linux-x64-musl@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-linux-x64-musl/-/core-linux-x64-musl-1.3.2.tgz#e24868f942fae2931cf1e619e2bfa17194972408"
+"@swc/core-linux-x64-musl@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-linux-x64-musl/-/core-linux-x64-musl-1.3.4.tgz#f65abb7e149ad3f20ca98c933331aa98c190cd9f"
 
-"@swc/core-win32-arm64-msvc@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-win32-arm64-msvc/-/core-win32-arm64-msvc-1.3.2.tgz#c7ebc460e900f8934f7ae10ec6c9364b0953bba3"
+"@swc/core-win32-arm64-msvc@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-win32-arm64-msvc/-/core-win32-arm64-msvc-1.3.4.tgz#4bfca2e1c73bf8c6109ed734eb15eca6406b1ebd"
   dependencies:
     "@swc/wasm" "1.2.130"
 
-"@swc/core-win32-ia32-msvc@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-win32-ia32-msvc/-/core-win32-ia32-msvc-1.3.2.tgz#b9e802cec1db078cacae1a913492e8fb61b684f4"
+"@swc/core-win32-ia32-msvc@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-win32-ia32-msvc/-/core-win32-ia32-msvc-1.3.4.tgz#df9c06ad65e80b19d26710a0d5951f29848a76ae"
   dependencies:
     "@swc/wasm" "1.2.130"
 
-"@swc/core-win32-x64-msvc@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.3.2.tgz#a6c061a98bf6c70c42ac1fdf27674b085b768285"
+"@swc/core-win32-x64-msvc@1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.3.4.tgz#7bf6cd6f5c3197d7d807b273d12dd666e23b238e"
 
-"@swc/core@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.3.2.tgz#86b1138f9b51e8476f39e2894944fc45585971fc"
+"@swc/core@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.3.4.tgz#961183ede3a836b3aea7d755f07c4ae673c5a763"
   optionalDependencies:
-    "@swc/core-android-arm-eabi" "1.3.2"
-    "@swc/core-android-arm64" "1.3.2"
-    "@swc/core-darwin-arm64" "1.3.2"
-    "@swc/core-darwin-x64" "1.3.2"
-    "@swc/core-freebsd-x64" "1.3.2"
-    "@swc/core-linux-arm-gnueabihf" "1.3.2"
-    "@swc/core-linux-arm64-gnu" "1.3.2"
-    "@swc/core-linux-arm64-musl" "1.3.2"
-    "@swc/core-linux-x64-gnu" "1.3.2"
-    "@swc/core-linux-x64-musl" "1.3.2"
-    "@swc/core-win32-arm64-msvc" "1.3.2"
-    "@swc/core-win32-ia32-msvc" "1.3.2"
-    "@swc/core-win32-x64-msvc" "1.3.2"
+    "@swc/core-android-arm-eabi" "1.3.4"
+    "@swc/core-android-arm64" "1.3.4"
+    "@swc/core-darwin-arm64" "1.3.4"
+    "@swc/core-darwin-x64" "1.3.4"
+    "@swc/core-freebsd-x64" "1.3.4"
+    "@swc/core-linux-arm-gnueabihf" "1.3.4"
+    "@swc/core-linux-arm64-gnu" "1.3.4"
+    "@swc/core-linux-arm64-musl" "1.3.4"
+    "@swc/core-linux-x64-gnu" "1.3.4"
+    "@swc/core-linux-x64-musl" "1.3.4"
+    "@swc/core-win32-arm64-msvc" "1.3.4"
+    "@swc/core-win32-ia32-msvc" "1.3.4"
+    "@swc/core-win32-x64-msvc" "1.3.4"
 
 "@swc/wasm@1.2.122":
   version "1.2.122"
